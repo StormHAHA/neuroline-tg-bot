@@ -6,9 +6,11 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import CommandStart
 from aiogram.fsm.storage.memory import MemoryStorage
-
-TOKEN = "7973940253:AAHm90XxjRD0rd3z4QDlEMwhfIStXzrXQyg"
-OWNER_ID = 835935469  # ID владельца бота
+import os
+from dotenv import load_dotenv
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
+OWNER_ID = int(os.getenv("OWNER_ID"))  # ID владельца бота
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=TOKEN)
