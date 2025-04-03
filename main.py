@@ -149,7 +149,8 @@ async def process_feeding(message: Message, state: FSMContext):
     await state.set_state(Form.current_difficulties)
 
 @dp.message(Form.current_difficulties)
-async def process_reaction_to_tasks(message: Message, state: FSMContext):
+async def process_current_difficulties(message: Message, state: FSMContext):
+    await state.update_data(current_difficulties=message.text)
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text="С интересом", callback_data="reaction_interest"),
