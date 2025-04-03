@@ -125,14 +125,14 @@ async def process_birth_weight(message: Message, state: FSMContext):
 
 
 @dp.message(Form.head_hold)
-async def process_motor_development(message: Message, state: FSMContext):
-    await state.update_data(motor_development=message.text)
+async def process_head_hold(message: Message, state: FSMContext):
+    await state.update_data(head_hold=message.text)
     await message.answer("📌Когда сел, пополз, пошел?")
     await state.set_state(Form.motor_development)
 
 @dp.message(Form.motor_development)
-async def process_speech_development(message: Message, state: FSMContext):
-    await state.update_data(speech_development=message.text)
+async def process_motor_development(message: Message, state: FSMContext):
+    await state.update_data(motor_development=message.text)
     await message.answer("📌Когда появились первые звуки, слова, фразы?")
     await state.set_state(Form.speech_development)
 
